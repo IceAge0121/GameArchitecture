@@ -20,6 +20,25 @@ public class PlayerInput : MonoBehaviour
 
     private bool clear;
 
+    //Singleton
+    private static PlayerInput instance;
+
+    private void Awake()
+    {
+        if(instance != null && instance != this)
+        {
+            Destroy(instance);
+            //return;
+        }
+
+        instance = this;
+    }
+
+    public static PlayerInput GetInstance()
+    {
+        return instance;
+    }
+
     // Update is called once per frame
     void Update()
     {

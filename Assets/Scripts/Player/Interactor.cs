@@ -4,8 +4,12 @@ using UnityEngine;
 
 public abstract class Interactor : MonoBehaviour
 {
-    [SerializeField] protected PlayerInput playerInput;
+    protected PlayerInput playerInput;
 
+    private void Awake()
+    {
+        playerInput = PlayerInput.GetInstance();
+    }
     // Update is called once per frame
     void Update()
     {
