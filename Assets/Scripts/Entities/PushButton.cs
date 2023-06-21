@@ -5,21 +5,22 @@ using UnityEngine.Events;
 
 public class PushButton : MonoBehaviour, ISelectable
 {
-    [SerializeField] private Material defaultMat;
+    /*[SerializeField] private Material defaultMat;
     [SerializeField] private Material hoverMat;
-    [SerializeField] private MeshRenderer buttonRenderer;
+    [SerializeField] private MeshRenderer buttonRenderer;*/
 
-
+    public UnityEvent onHoverEnter;
+    public UnityEvent onHoverExit;
     public UnityEvent OnPush;
 
     public void OnHoverEnter()
     {
-        buttonRenderer.material = hoverMat;
+        onHoverEnter?.Invoke();
     }
 
     public void OnHoverExit()
     {
-        buttonRenderer.material = defaultMat;
+        onHoverExit?.Invoke();
     }
 
     public void OnSelect()
